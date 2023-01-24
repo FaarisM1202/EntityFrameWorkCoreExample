@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace EntityFrameWorkCoreExample
 {
-    internal class StudentContext
+    public class StudentContext : DbContext
     {
+        public StudentContext()
+        {
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionBuilder options)
+        {
+            options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EFCoreExample;Trusted_Connection=True;");
+        }
 
     }
 }
